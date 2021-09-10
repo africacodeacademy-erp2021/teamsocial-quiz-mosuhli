@@ -65,12 +65,8 @@ import { questions } from "./AboutLesotho";
             setScore(score + 5);
             setTotal(50);
         }
-        //shuffleArray();
-        const nextQuestion = currentQuestion + 1; 
-        //const i = questions[Math.floor(Math.random()*questions.length)];      
+        const nextQuestion = currentQuestion + 1;   
         if(nextQuestion < random.length){
-            //questions[randomNumber];
-            
             setCurrentQuestion(nextQuestion);
 
         }else{
