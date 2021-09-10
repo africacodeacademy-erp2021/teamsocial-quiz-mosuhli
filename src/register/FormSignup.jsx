@@ -1,13 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, ReactNode} from 'react';
 import validate from './validateInfo';
 import useForm from './useForm';
+
 import '../App.css';
 
+/* interface Props{
+  submitForm: ReactNode,
+} */
+
 const FormSignup = ({ submitForm }) => {
-  const { handleChange, handleSubmit, storeUser, values, errors } = useForm(
+  const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
     validate
   );
+  
    const click = () => {
     localStorage.setItem("nickname", values.username)
   }; 
@@ -32,7 +38,7 @@ const FormSignup = ({ submitForm }) => {
         <div className='form-inputs'>
           <input
             className='form-input'
-            type='number'
+            type='text'
             name='pin'
             placeholder='Enter your game pin'
             value={values.pin}

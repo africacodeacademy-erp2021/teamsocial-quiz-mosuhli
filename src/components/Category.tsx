@@ -11,7 +11,7 @@ import GameKnowledge from "./GameKnowledge";
 
 
 
-const Category = (props) =>{
+function Category(){
 
     function Content(){
         let history = useHistory();

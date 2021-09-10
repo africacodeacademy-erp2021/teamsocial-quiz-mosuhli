@@ -2,6 +2,7 @@
 import * as React from 'react'
 import { Component } from 'react';
 import Form from './register/Forms'; 
+import Login from './register/Login'
 
 import {
   BrowserRouter as Router,
