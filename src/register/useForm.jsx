@@ -34,14 +34,14 @@ const useForm = (callback, validate) => {
   
 
   useEffect( () => {
-      if (Object.keys(errors).length === 0 && isSubmitting && isStoring) {
+      if (Object.keys(errors).length === 0 && isSubmitting) {
         callback();
       }
     },
     [errors]
   );
 
-  return {  handleChange, handleSubmit, values, errors,  };
+  return {  handleChange, handleSubmit, values, callback, errors,  }; 
 };
 
 export default useForm;

@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import Category from './Category';
 import '../App.css'
 import NewGame from './NewGame';
 import { questions } from "./AboutLesotho";
@@ -26,7 +25,7 @@ import { questions } from "./AboutLesotho";
         const {value} = event.target;
         setQuestions(value);
 
-        if(value == 5){
+        if(value === 5){
             shuffleArray(questions);
             questions.splice(5, 5);
             let temp = questions;
@@ -71,7 +70,7 @@ import { questions } from "./AboutLesotho";
              
             {showScore ? (
                 <div className='score-section'>
-                   You scored {score} out of {total } on About Lesotho Quiz<br/>
+                   Hey! {x} You earned {score} points on About Lesotho, Note: each question its valued 5 points  <br/>
                    <div>
                         <NewGame/>
                     </div>
