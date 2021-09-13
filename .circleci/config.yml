@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   heroku: circleci/heroku@1.2.6
 workflows:
-  deploy-teamsocial-quiz-app:
+  deploy-tic-tac-toe-app:
     jobs:
       - test 
       - build:
