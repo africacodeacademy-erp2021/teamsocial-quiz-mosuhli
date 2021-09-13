@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   heroku: circleci/heroku@1.2.6
 workflows:
-  deploy-tic-tac-toe-app:
+  deploy-teamsocial-quiz-app:
     jobs:
       - test 
       - build:
@@ -29,7 +29,7 @@ jobs:
           command: npm run test
   build:
     docker:
-      - image: cimg/node:14.13.0
+      - image: cimg/node:14.17.3
     
     steps:
       - checkout
