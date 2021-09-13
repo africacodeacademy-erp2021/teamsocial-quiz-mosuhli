@@ -1,20 +1,27 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, ReactNode} from 'react';
 import validate from './validateInfo';
 import useForm from './useForm';
+
 import '../App.css';
 
+/* interface Props{
+  submitForm: ReactNode,
+} */
+
+
 const FormSignup = ({ submitForm }) => {
-  const { handleChange, handleSubmit, storeUser, values, errors } = useForm(
+  const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
     validate
   );
+  
    const click = () => {
     localStorage.setItem("nickname", values.username)
   }; 
   
   return (
     <div className='App'>
-      <form onSubmit={handleSubmit}  className='form' noValidate>
+      <form data-testid="form-login" onSubmit={handleSubmit}  className='form' noValidate>
       <h1>Log in to ACA Team Social App</h1>
         <div className='form-inputs'>
           <input
@@ -32,7 +39,7 @@ const FormSignup = ({ submitForm }) => {
         <div className='form-inputs'>
           <input
             className='form-input'
-            type='number'
+            type='text'
             name='pin'
             placeholder='Enter your game pin'
             value={values.pin}

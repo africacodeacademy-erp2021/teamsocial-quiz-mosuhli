@@ -3,20 +3,9 @@ import Category from './Category';
 import '../App.css'
 import NewGame from './NewGame';
 import { questions } from "./AboutLesotho";
- const GameCountry = (props) => {
-    
-    
+ function GameCountry() {
 
-     //let randomNumber = Math.floor(Math.random() * questions.length);
-    /* function shuffleArray(questions) {
-        for (let i = questions.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [questions[i], questions[j]] = [questions[j], questions[i]];
-        }
-        //console.log(questions);
-      } */
-    
-      function shuffleArray(array){
+      function shuffleArray(array:any){
           var num = array.length,
           temp,
           index;
@@ -33,7 +22,7 @@ import { questions } from "./AboutLesotho";
       }
 
 
-    function handleChange(event){
+    function handleChange(event:any){
         const {value} = event.target;
         setQuestions(value);
 
@@ -60,17 +49,13 @@ import { questions } from "./AboutLesotho";
     const [question, setQuestions] = useState(0);
     const [random, setRandom] = useState(questions);
 
-    const handleAnswerOptionClick = (isCorrect) => {
+    const handleAnswerOptionClick = (isCorrect:any) => {
         if(isCorrect){
             setScore(score + 5);
             setTotal(50);
         }
-        //shuffleArray();
-        const nextQuestion = currentQuestion + 1; 
-        //const i = questions[Math.floor(Math.random()*questions.length)];      
+        const nextQuestion = currentQuestion + 1;   
         if(nextQuestion < random.length){
-            //questions[randomNumber];
-            
             setCurrentQuestion(nextQuestion);
 
         }else{

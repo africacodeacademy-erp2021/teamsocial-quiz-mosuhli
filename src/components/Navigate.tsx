@@ -7,21 +7,16 @@ import {
     useHistory,
     Link
   } from "react-router-dom"; 
-const NewGame = () =>{
-
+const Navigate = () =>{ 
+  
   function Content(){
 
     let history = useHistory();
-          const data = JSON.stringify(localStorage.getItem("user"));
-          const name = data.replace('"', '');
-          const x = name.replace('"', '')
-
-
-         const handleClick = () => history.push("./Category");   
+    const handleClick = () => history.push("./Category");   
         return(
             <div>
                 <div>
-                    <button onClick={handleClick}>New Game</button>
+                    <button onClick={handleClick}>Login</button>
                 </div>
                 
             </div>
@@ -42,4 +37,4 @@ const NewGame = () =>{
     
         
 }
-export default NewGame;
+export default Navigate;

@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
-import axios from "axios";
-import { render } from '@testing-library/react';
 
 
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
     username: '',
-    pin: Number
+    pin: ''
   });
 
   const [errors, setErrors] = useState({});
@@ -16,7 +14,7 @@ const useForm = (callback, validate) => {
 
   
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
       ...values,
@@ -24,7 +22,7 @@ const useForm = (callback, validate) => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
 
