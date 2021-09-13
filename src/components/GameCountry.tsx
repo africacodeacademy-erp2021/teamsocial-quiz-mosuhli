@@ -89,7 +89,7 @@ import { questions } from "./AboutLesotho";
                         <input id="seven-questions" value={7} name="options" type="radio" onChange={handleChange}/> Seven Question
                     </div>
                         <div className='question-count'>
-                            <span>Question {currentQuestion + 1}</span>/{question}
+                            <span>Question {currentQuestion + 1}</span>
                         </div>
                         
                         <div className='question-text'>
