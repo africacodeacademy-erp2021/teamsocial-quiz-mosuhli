@@ -4,17 +4,13 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    useHistory,
-    Link
+    useHistory
   } from "react-router-dom"; 
 const NewGame = () =>{ 
   
   function Content(){
 
     let history = useHistory();
-          const data = JSON.stringify(localStorage.getItem("user"));
-          const name = data.replace('"', '');
-          const x = name.replace('"', '')
 
 
          const handleClick = () => history.push("./Category");   

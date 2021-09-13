@@ -33,7 +33,7 @@ export default function GameKnowledge() {
       const {value} = event.target;
       setQuestions(value);
 
-      if(value == 5){
+      if(value === 5){
           shuffleArray(questions);
           questions.splice(5, 5);
           let temp = questions;
@@ -72,7 +72,7 @@ export default function GameKnowledge() {
             
             {showScore ? (
                 <div className='score-section'>
-                    You scored {score} out of {total} on General Knowledge Quiz {x}<br/>
+                    Hey! {x} You earned {score} points on General Knowledge,  Note: each question its valued 5 points  <br/>
                     <div>
                         <NewGame/>
                     </div>

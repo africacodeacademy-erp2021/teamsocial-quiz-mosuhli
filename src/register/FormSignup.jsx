@@ -1,14 +1,7 @@
-import React, {useState, useEffect, ReactNode} from 'react';
 import validate from './validateInfo';
 import useForm from './useForm';
 
 import '../App.css';
-
-/* interface Props{
-  submitForm: ReactNode,
-} */
-
-
 const FormSignup = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,

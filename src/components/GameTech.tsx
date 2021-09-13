@@ -73,7 +73,7 @@ export default function GameSports() {
             
             {showScore ? (
                 <div className='score-section'>
-                    Hey! {x} You earned {score} points,  each question its valued 5 points on Tech Quiz <br/>
+                    Hey! {x} You earned {score} points on Tech Quiz,  Note: each question its valued 5 points  <br/>
                     <div>
                         <NewGame/>
                     </div>
