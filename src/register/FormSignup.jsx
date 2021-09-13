@@ -8,6 +8,7 @@ import '../App.css';
   submitForm: ReactNode,
 } */
 
+
 const FormSignup = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
@@ -20,7 +21,7 @@ const FormSignup = ({ submitForm }) => {
   
   return (
     <div className='App'>
-      <form onSubmit={handleSubmit}  className='form' noValidate>
+      <form data-testid="form-login" onSubmit={handleSubmit}  className='form' noValidate>
       <h1>Log in to ACA Team Social App</h1>
         <div className='form-inputs'>
           <input
