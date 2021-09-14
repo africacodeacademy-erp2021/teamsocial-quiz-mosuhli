@@ -29,7 +29,7 @@ jobs:
           command: npm run test
   build:
     docker:
-      - image: cimg/node:14.17.3
+      - image: cimg/node:14.13.0
     
     steps:
       - checkout
