@@ -8,11 +8,10 @@ export default function GameSports() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
-    const [total, setTotal] = useState(0);
-    const [question, setQuestions] = useState(0);
+    const [, setQuestions] = useState(0);
     const [random, setRandom] = useState(questions);
 
-    function shuffleArray(array:any){ 
+    function shuffleArray(array:any[]){ 
         var num = array.length,
         temp,
         index;
@@ -33,7 +32,7 @@ export default function GameSports() {
       const {value} = event.target;
       setQuestions(value);
 
-      if(value == 5){
+      if(value === 5){
           shuffleArray(questions);
           questions.splice(5, 5);
           let temp = questions;
@@ -53,7 +52,6 @@ export default function GameSports() {
     const handleAnswerOptionClick = (isCorrect: boolean) => {
         if(isCorrect){
             setScore(score + 5);
-            setTotal(50);
         }
 
         const nextQuestion = currentQuestion + 1;
