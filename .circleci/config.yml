@@ -5,10 +5,7 @@ workflows:
   deploy-teamsocial-quiz-app:
     jobs:
       - test 
-      - build
-      - heroku/deploy-via-git:
-          requires:
-            - build
+      - heroku/deploy-via-git:          
           filters:
             branches:
               only: main
@@ -34,6 +31,4 @@ jobs:
       - run:
           name: install dependiceies
           command: npm install
-      - run:
-          name: build
-          command: npm run build
+ 
