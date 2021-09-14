@@ -25,7 +25,7 @@ import { questions } from "./AboutLesotho";
         const {value} = event.target;
         setQuestions(value);
 
-        if(value === 5){
+        if(value == 5){
             shuffleArray(questions);
             questions.splice(5, 5);
             let temp = questions;
@@ -70,6 +70,7 @@ import { questions } from "./AboutLesotho";
              
             {showScore ? (
                 <div className='score-section'>
+
                    Hey! {x} You earned {score} points on About Lesotho, Note: each question its valued 5 points  <br/>
                    <div>
                         <NewGame/>
@@ -93,7 +94,6 @@ import { questions } from "./AboutLesotho";
                         
                         <div className='question-text'>
                             {random[currentQuestion].questionText}
-                        
                         </div>
                     </div>
                     <div className='answer-section'>
