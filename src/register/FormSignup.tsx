@@ -1,7 +1,7 @@
 import validate from './validateInfo';
 import useForm from './useForm';
-
 import '../App.css';
+//How to dispaly type checking in typescript
 const FormSignup = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,

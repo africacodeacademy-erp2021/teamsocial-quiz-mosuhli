@@ -8,9 +8,8 @@ const useForm = (callback, validate) => {
     pin: ''
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<any>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isStoring, setIsStoring] = useState(false);
 
   
 
@@ -28,7 +27,6 @@ const useForm = (callback, validate) => {
 
     setErrors(validate(values));
     setIsSubmitting(true);  
-    setIsStoring(true); 
     
   };
   
@@ -41,7 +39,7 @@ const useForm = (callback, validate) => {
     [errors, callback, isSubmitting]
   );
 
-  return {  handleChange, handleSubmit, values,  errors,  }; 
+  return {  handleChange, handleSubmit, values,  errors}; 
 };
 
 export default useForm;
