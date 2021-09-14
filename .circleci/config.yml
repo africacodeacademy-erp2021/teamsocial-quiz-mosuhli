@@ -5,9 +5,7 @@ workflows:
   deploy-teamsocial-quiz-app:
     jobs:
       - test 
-      - build:
-         requires:
-           - test
+      - build
       - heroku/deploy-via-git:
           requires:
             - build
@@ -36,12 +34,6 @@ jobs:
       - run:
           name: install dependiceies
           command: npm install
-      - run:
-          name: install react-router-dom
-          command: npm install react-router-dom
-      - run:
-          name: install and save react-router-dom
-          command: npm install --save react-router-dom
       - run:
           name: build
           command: npm run build
