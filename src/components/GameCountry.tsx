@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import '../App.css'
 import NewGame from './NewGame';
 import { questions } from "./AboutLesotho";
  function GameCountry() {
 
-      function shuffleArray(array:any){
+      function shuffleArray(array:any[]){
           var num = array.length,
           temp,
           index;
@@ -25,9 +25,9 @@ import { questions } from "./AboutLesotho";
         const {value} = event.target;
         setQuestions(value);
 
-        if(value == 5){
+        if(value === 5){
             shuffleArray(questions);
-            questions.splice(5, 5);
+            questions.splice(5);
             let temp = questions;
             setRandom(temp);
             console.log(random);
@@ -44,14 +44,12 @@ import { questions } from "./AboutLesotho";
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
-    const [total, setTotal] = useState(0);
-    const [question, setQuestions] = useState(0);
+    const [, setQuestions] = useState(0);
     const [random, setRandom] = useState(questions);
 
     const handleAnswerOptionClick = (isCorrect:any) => {
         if(isCorrect){
             setScore(score + 5);
-            setTotal(50);
         }
         const nextQuestion = currentQuestion + 1;   
         if(nextQuestion < random.length){
@@ -74,6 +72,9 @@ import { questions } from "./AboutLesotho";
                    Hey! {x} You earned {score} points on About Lesotho, Note: each question its valued 5 points  <br/>
                    <div>
                         <NewGame/>
+                    </div>
+                    <div>
+                        
                     </div>
                 </div>
             ) : (
