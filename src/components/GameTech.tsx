@@ -10,7 +10,10 @@ export default function GameSports() {
     const [score, setScore] = useState(0);
     const [noQuestions, setNoQuestions] = useState(0);
     const [random, setRandom] = useState(questions);
-    const [showQuestions, setShowQuestions] = useState(false)
+    const [showQuestions, setShowQuestions] = useState(false);
+    const [finalResults, setFinalResults] = useState("");
+    const total = noQuestions * 5;
+    const pass = total / 2;
 
     function shuffleArray(array:any[]){ 
         var num = array.length,
@@ -59,6 +62,11 @@ export default function GameSports() {
         if(nextQuestion < noQuestions){
             setCurrentQuestion(nextQuestion);
         }else{
+            if(score >= pass ){
+                setFinalResults("Passed")
+            }else{
+                setFinalResults("Failed")
+            }
             setShowScore(true);
         }
     };
@@ -81,7 +89,7 @@ export default function GameSports() {
             
             {showScore ? (
                 <div className='score-section'>
-                    Hey! {x} You earned {score} points on Tech Quiz,  Note: each question its valued 5 points  <br/>
+                    Hey! {x} You {finalResults}, Score: {score}/{total}, Note: each question its valued 5 points  <br/>
                     <div>
                         <NewGame/>
                     </div>

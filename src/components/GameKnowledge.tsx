@@ -11,6 +11,9 @@ export default function GameKnowledge() {
     const [noQuestions, setNoQuestions] = useState(0);
     const [random, setRandom] = useState(questions);
     const [showQuestions, setShowQuestions] = useState(false)
+    const [finalResults, setFinalResults] = useState("");
+    const total = noQuestions * 5;
+    const pass = total / 2;
 
     const data = JSON.stringify(localStorage.getItem("nickname"));
     const name = data.replace('"', '');
@@ -62,6 +65,11 @@ export default function GameKnowledge() {
         if(nextQuestion < noQuestions){
             setCurrentQuestion(nextQuestion);
         }else{
+            if(score >= pass ){
+                setFinalResults("Passed")
+            }else{
+                setFinalResults("Failed")
+            }
             setShowScore(true);
         }
     };
@@ -81,7 +89,7 @@ export default function GameKnowledge() {
             
             {showScore ? (
                 <div className='score-section'>
-                    Hey! {x} You earned {score} points on General Knowledge,  Note: each question its valued 5 points  <br/>
+                    Hey! {x} You {finalResults}, Score: {score}/{total}, Note: each question its valued 5 points  <br/>
                     <div>
                         <NewGame/>
                     </div>
