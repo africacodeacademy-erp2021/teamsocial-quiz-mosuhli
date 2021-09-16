@@ -2,6 +2,7 @@ import React, {useState} from "react";
 
 import NewGame from './NewGame';
 import { questions } from "./General";
+import { Link } from "react-router-dom";
 
 export default function GameKnowledge() {
 
@@ -91,7 +92,9 @@ export default function GameKnowledge() {
                 <div className='score-section'>
                     Hey! {x} You {finalResults}, Score: {score}/{total}, Note: each question its valued 5 points  <br/>
                     <div>
-                        <NewGame/>
+                    <button>
+                        <Link to="/Category">New Game</Link>
+                    </button>
                     </div>
                 </div>
             ) : showQuestions ? (
