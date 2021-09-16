@@ -2,17 +2,28 @@ import {useState} from "react";
 import '../App.css'
 import NewGame from './NewGame';
 import { questions } from "./AboutLesotho";
+
  function GameCountry() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
     const [noQuestions, setNoQuestions] = useState(0);
     const [random, setRandom] = useState(questions);
-    const [showQuestions, setShowQuestions] = useState(false)
+    const [showQuestions, setShowQuestions] = useState(false);
+    const [finalResults, setFinalResults] = useState("");
+    const total = noQuestions * 5;
+    const pass = total / 2;
 
     const data = JSON.stringify(localStorage.getItem("nickname"));
     const name = data.replace('"', '');
-    const x = name.replace('"', '')
+    const x = name.replace('"', '');
+
+    const emojiMap = {
+        joy: "&#x1f602",
+        shades: "&#x1f60e",
+        happy: "&#x1f600"
+      }
+
 
       function shuffleArray(array:any[]){
           var num = array.length,
@@ -50,6 +61,7 @@ import { questions } from "./AboutLesotho";
             console.log(random);
         }
     }
+    
     const handleAnswerOptionClick = (isCorrect:any) => {
         if(isCorrect){
             setScore(score + 5);
@@ -59,6 +71,11 @@ import { questions } from "./AboutLesotho";
             setCurrentQuestion(nextQuestion);
         }
         else{
+            if(score >= pass ){
+                setFinalResults("Passed")
+            }else{
+                setFinalResults("Failed")
+            }
             setShowScore(true);
         }
     };
@@ -80,7 +97,7 @@ import { questions } from "./AboutLesotho";
                 <div className='score-section'>
 
                 <div>
-                   Hey! {x} You earned {score} points on About Lesotho, Note: each question its valued 5 points  <br/>
+                   Hey! {x} You {finalResults}, Score: {score}/{total}, Note: each question its valued 5 points  <br/>
                 </div>
                    <div>
                       
