@@ -18,12 +18,6 @@ import { questions } from "./AboutLesotho";
     const name = data.replace('"', '');
     const x = name.replace('"', '');
 
-    const emojiMap = {
-        joy: "&#x1f602",
-        shades: "&#x1f60e",
-        happy: "&#x1f600"
-      }
-
 
       function shuffleArray(array:any[]){
           var num = array.length,
@@ -98,6 +92,7 @@ import { questions } from "./AboutLesotho";
 
                 <div>
                    Hey! {x} You {finalResults}, Score: {score}/{total}, Note: each question its valued 5 points  <br/>
+                 
                 </div>
                    <div>
                       
