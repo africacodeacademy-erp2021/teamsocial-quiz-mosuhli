@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-
-import NewGame from './NewGame';
 import { questions } from "./General";
 import { Link } from "react-router-dom";
 
