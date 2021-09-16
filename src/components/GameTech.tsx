@@ -8,8 +8,9 @@ export default function GameSports() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
-    const [, setQuestions] = useState(0);
+    const [noQuestions, setNoQuestions] = useState(0);
     const [random, setRandom] = useState(questions);
+    const [showQuestions, setShowQuestions] = useState(false)
 
     function shuffleArray(array:any[]){ 
         var num = array.length,
@@ -30,20 +31,20 @@ export default function GameSports() {
 
   function handleChange(event:any){
       const {value} = event.target;
-      setQuestions(value);
+      setNoQuestions(value);
 
       if(value === 5){
           shuffleArray(questions);
-          questions.splice(5, 5);
           let temp = questions;
           setRandom(temp);
+          setShowQuestions(true);
           console.log(random);
       }
       else{
           shuffleArray(questions);
-          questions.splice(7, 3);
           let temp = questions;
           setRandom(temp);
+          setShowQuestions(true)
           console.log(random);
       }
   }
@@ -55,7 +56,7 @@ export default function GameSports() {
         }
 
         const nextQuestion = currentQuestion + 1;
-        if(nextQuestion < random.length){
+        if(nextQuestion < noQuestions){
             setCurrentQuestion(nextQuestion);
         }else{
             setShowScore(true);
@@ -68,6 +69,15 @@ export default function GameSports() {
     return(
         
         <div className="app">
+            <div>
+            <div>
+                <span key="{token}">Start Technology Quiz {x}</span>                   
+            </div>
+            <div>
+                <input id="five-questions" value={5} name="options" type="radio" onChange={handleChange}/> Five Question
+                <input id="seven-questions" value={7} name="options" type="radio" onChange={handleChange}/> Seven Question
+            </div>
+            </div>
             
             {showScore ? (
                 <div className='score-section'>
@@ -76,17 +86,11 @@ export default function GameSports() {
                         <NewGame/>
                     </div>
                 </div>
-            ) : (
+            ) : showQuestions ? (
                 
                 <>
                     <div className='question-section'>
-                    <div>
-                        <span key="{token}">Start Technology Quiz {x}</span>                   
-                    </div>
-                    <div>
-                        <input id="five-questions" value={5} name="options" type="radio" onChange={handleChange}/> Five Question
-                        <input id="seven-questions" value={7} name="options" type="radio" onChange={handleChange}/> Seven Question
-                    </div>
+                    
                         <div className='question-count'>
                             <span>Question {currentQuestion + 1}</span>
                         </div>
@@ -98,7 +102,7 @@ export default function GameSports() {
 						))}
 					</div>
                 </>
-            )}
+            ) : null}
         </div>
     )
 }
