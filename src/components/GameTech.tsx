@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-
-import NewGame from './NewGame';
 import { questions } from "./Tech";
 
 export default function GameSports() {
