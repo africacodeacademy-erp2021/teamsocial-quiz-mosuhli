@@ -69,21 +69,25 @@ import { Link } from "react-router-dom";
         if(isCorrect){
             setScore(score + 5);
             setShowEmoji(goodAnswer1 || goodAnswer2);
-            alert("Good Luck "+<img src={showEmoji} alt=""/>)
+            alert("Good Luck  ")
             
         }else{
             setShowEmoji(badAnswer1 || badAnswer2);
-            alert("Sorry! "+ <img src={showEmoji} alt="" />)
+            alert("Sorry! NOT corect")
         }
         const nextQuestion = currentQuestion + 1;   
         if(nextQuestion < noQuestions){
             setCurrentQuestion(nextQuestion);
         }
         else{
-            if(score >= pass ){
+            if(score > pass ){
                 setFinalResults("Passed")
                 setShowEmoji(urlPass);
-            }else{
+            }
+            else if(score === pass){
+                setFinalResults("Passed")
+                setShowEmoji(urlPass);
+            }else {
                 setFinalResults("Failed")
                 setShowEmoji(urlFail);
             }
@@ -95,8 +99,12 @@ import { Link } from "react-router-dom";
         
         <div className="App">
             <div>
+                
                 <div>
                     <span key="{token}">Start About Lesotho Quiz {x}</span>
+                </div>
+                <div>
+                      Your Score: {score}/{total}<br/>
                 </div>
                 <div>
                     <input id="five-questions" value={5} name="options" type="radio" onChange={handleChange}/> Five Question
@@ -108,7 +116,7 @@ import { Link } from "react-router-dom";
                 <div className='score-section'>
 
                 <div>
-                   Hey! {x} You {finalResults}, Score: {score}/{total}, Note: each question its valued 5 points  <br/>
+                   Hey! {x} You {finalResults}, Your final Score: {score}/{total}, Note: each question its valued 5 points  <br/>
                  
                 </div>
                    <div>
