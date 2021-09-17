@@ -71,7 +71,7 @@ export default function GameKnowledge() {
             alert("Good Luck ");
         }else{
             setShowEmoji(badAnswer1 || badAnswer2);
-            alert("Sorry! ")
+            alert("Sorry! Correct")
         }
 
         const nextQuestion = currentQuestion + 1;        
@@ -80,6 +80,7 @@ export default function GameKnowledge() {
         }else{
             if(score > pass ){
                 setFinalResults("Passed")
+                setShowEmoji(urlPass);
             }else if(score === pass){
                 setFinalResults("Passed")
                 setShowEmoji(urlPass);
