@@ -73,7 +73,7 @@ import { Link } from "react-router-dom";
             
         }else{
             setShowEmoji(badAnswer1 || badAnswer2);
-            alert("Sorry! NOT corect")
+            alert("Sorry! NOT Correct")
         }
         const nextQuestion = currentQuestion + 1;   
         if(nextQuestion < noQuestions){
